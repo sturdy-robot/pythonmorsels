@@ -23,7 +23,7 @@ class Month:
         return cls(dt.year, dt.month)
 
     def strftime(self, args):
-        pass
+        return self.first_day.strftime(args)
 
     def __str__(self):
         return f'{self.year}-{self.month:02d}'
