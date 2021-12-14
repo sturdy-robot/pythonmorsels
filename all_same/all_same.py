@@ -1,4 +1,5 @@
 def all_same(seq):
-    if seq:
-        return len(set(seq)) == 1
-    return True
+    it = iter(seq)
+    first = next(it, None)
+    return all(x == first for x in it)
+    

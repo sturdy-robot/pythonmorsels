@@ -56,7 +56,7 @@ class AllSameTests(unittest.TestCase):
         self.assertFalse(all_same([(1, 2, 3), (1, 2, 3), (1, 4, 3)]))
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_nonhashable_values(self):
         self.assertFalse(all_same([['hi', 'hi'], ['hi', 'hi', 'hi']]))
         self.assertTrue(all_same([['hi', 'hi'], ['hi', 'hi']]))
@@ -64,7 +64,7 @@ class AllSameTests(unittest.TestCase):
         self.assertFalse(all_same([{1: 2}, {1: 3}]))
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_nonsequences(self):
         numbers = [1, 3, 5, 7, 9]
         self.assertTrue(all_same({1}))
@@ -73,7 +73,7 @@ class AllSameTests(unittest.TestCase):
         self.assertTrue(all_same(n % 2 for n in numbers))
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_return_early(self):
         self.assertFalse(all_same(n**2 for n in [2, 3, {}]))
         from itertools import count
