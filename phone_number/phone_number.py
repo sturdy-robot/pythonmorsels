@@ -17,9 +17,9 @@ class PhoneNumber:
         if mo is None:
             raise ValueError
 
-        super(PhoneNumber, self).__setattr__('area_code', mo.group(1))
-        super(PhoneNumber, self).__setattr__('prefix', mo.group(2))
-        super(PhoneNumber, self).__setattr__('line_number', mo.group(3))
+        super(PhoneNumber, self).__setattr__('area_code', mo[1])
+        super(PhoneNumber, self).__setattr__('prefix', mo[2])
+        super(PhoneNumber, self).__setattr__('line_number', mo[3])
         super(PhoneNumber, self).__setattr__('phone_number', f'{self.area_code}{self.prefix}{self.line_number}')
 
     def __eq__(self, other):

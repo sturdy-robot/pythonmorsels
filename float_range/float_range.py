@@ -19,10 +19,7 @@ class float_range:
             return 0
         div = diff // self.step
         mod = diff % self.step
-        if mod == 0:
-            return int(div)
-        else:
-            return int(div + 1)
+        return int(div) if mod == 0 else int(div + 1)
 
     @staticmethod
     def _attrs(range_obj):

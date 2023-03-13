@@ -72,5 +72,5 @@ if __name__ == "__main__":
     from platform import python_version
     import sys
     if sys.version_info < (3, 6):
-        sys.exit("Running {}.  Python 3.6 required.".format(python_version()))
+        sys.exit(f"Running {python_version()}.  Python 3.6 required.")
     unittest.main(verbosity=2, testRunner=AllowUnexpectedSuccessRunner)

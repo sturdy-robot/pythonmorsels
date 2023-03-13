@@ -28,7 +28,7 @@ def main(filename):
         entries = entries_by_date(fp)
         for entry in entries:
             file, contents = entry
-            file = file + '.txt'
+            file = f'{file}.txt'
             with open(file, 'w') as fw:
                 fw.write(contents)
 

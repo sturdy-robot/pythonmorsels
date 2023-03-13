@@ -10,18 +10,17 @@ class EasyDict:
         return getattr(self, self.normalized(key), default)
 
     def normalized(self, key):
-        if self._normalize:
-            return key.replace(' ', '_')
-        else:
-            return key
+        return key.replace(' ', '_') if self._normalize else key
 
     def __getitem__(self, key):
         return getattr(self, self.normalized(key))
 
     def __eq__(self, other):
-        if not isinstance(self, EasyDict):
-            return NotImplemented
-        return self.__dict__ == other.__dict__
+        return (
+            self.__dict__ == other.__dict__
+            if isinstance(self, EasyDict)
+            else NotImplemented
+        )
 
     def __setitem__(self, key, value):
         setattr(self, self.normalized(key), value)
