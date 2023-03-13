@@ -70,8 +70,8 @@ class FuzzyStringTests(unittest.TestCase):
     # @unittest.expectedFailure
     def test_string_operators(self):
         hello = FuzzyString("heLlO")
-        self.assertEqual(hello + "!", "helLo!")
-        self.assertNotEqual(hello + "!", "hello")
+        self.assertEqual(f"{hello}!", "helLo!")
+        self.assertNotEqual(f"{hello}!", "hello")
         self.assertTrue("he" in hello)
         self.assertIn("He", hello)
         self.assertNotIn("He!", hello)
@@ -81,7 +81,7 @@ class FuzzyStringTests(unittest.TestCase):
         new_delhi = FuzzyString("NeW DELhi")
         new = FuzzyString("New")
         delhi = FuzzyString("Delhi")
-        self.assertEqual(new + " " + delhi, new_delhi)
+        self.assertEqual(f"{new} {delhi}", new_delhi)
         self.assertNotEqual(new + delhi, new_delhi)
         self.assertTrue(delhi in new_delhi)
         self.assertIn(new, new_delhi)

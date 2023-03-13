@@ -10,10 +10,7 @@ def csv_columns(file, headers=None, missing=None):
         headers = [col[0] for col in columns]
 
     for column, header in zip_longest(columns, headers):
-        col = []
-        for item in column:
-            if item != header:
-                col.append(item)
+        col = [item for item in column if item != header]
         dictionary[header] = col
-    
+
     return dictionary

@@ -13,7 +13,7 @@ def format_string(ranges):
     string = ''
     for i, r in enumerate(ranges):
         a, b = r
-        range_string = str(a) + '-' + str(b) if a != b else str(a)
+        range_string = f'{str(a)}-{str(b)}' if a != b else str(a)
         if i != len(ranges) - 1:
             range_string += ','
         string += range_string

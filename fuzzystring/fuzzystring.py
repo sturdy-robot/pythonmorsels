@@ -17,9 +17,11 @@ class FuzzyOrder(ABC):
 
 class FuzzyString(FuzzyOrder, UserString):
     def __lt__(self, other):
-        if not isinstance(other, (FuzzyString, str)):
-            return NotImplemented
-        return self._normalize(str(self.data)) < self._normalize(str(other))
+        return (
+            self._normalize(str(self.data)) < self._normalize(str(other))
+            if isinstance(other, (FuzzyString, str))
+            else NotImplemented
+        )
 
     def __contains__(self, item):
         if not isinstance(item, (FuzzyString, str)):
@@ -33,6 +35,8 @@ class FuzzyString(FuzzyOrder, UserString):
         return normalize("NFKD", text.casefold())
 
     def __eq__(self, other):
-        if not isinstance(other, (FuzzyString, str)):
-            return NotImplemented
-        return self._normalize(str(self.data)) == self._normalize(str(other))
+        return (
+            self._normalize(str(self.data)) == self._normalize(str(other))
+            if isinstance(other, (FuzzyString, str))
+            else NotImplemented
+        )
